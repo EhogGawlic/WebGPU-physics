@@ -17,7 +17,7 @@ struct Ball {
     // Update position based on velocity
     poss[iid].pos += tvel;
     poss[iid].vel += vec2<f32>(0.0, 9.81) * 0.016; // Gravity effect
-    poss[iid].vel *= 0.99
+    poss[iid].vel *= 0.99;
     // Check for collisions with all other balls
     for (var i: u32 = 0u; i < arrayLength(&poss); i = i + 1u) {
         if (i == iid) {
