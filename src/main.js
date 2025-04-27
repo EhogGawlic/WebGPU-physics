@@ -1,8 +1,16 @@
 import * as phys from './phys/utils.js'
-addEventListener('click', (e) => {
+const canvas = document.querySelector("canvas")
+mass=getMassOfBall(5)
+canvas.addEventListener('click', (e) => {
     // Append the new ball's data to the existing input array
+
     phys.addBall(e.clientX, e.clientY)
-    iscreating = !iscreating
+})
+addEventListener('keypress', (e)=>{
+    if (e.key==="c"){
+        iscreating = !iscreating
+        console.log('iscreating', iscreating)
+    }
 })
 let iscreating = false
 setInterval(()=>{

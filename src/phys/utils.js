@@ -1,5 +1,6 @@
 export function addBall(x,y) {
-    const newBall = new Float32Array([x, y, 0, 0, 5, 1]) // New ball: pos (x, y, z), vel (x, y, z), rad, mass
+
+    const newBall = new Float32Array([x, y, x-1, y-0.5, 1, 0.5, document.getElementById("rinp").value, mass]) // New ball: pos (x, y, z), vel (x, y, z), rad, mass
     const updatedInput = new Float32Array(result.length + newBall.length)
     updatedInput.set(result)
     updatedInput.set(newBall, result.length)

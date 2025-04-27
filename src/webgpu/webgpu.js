@@ -6,7 +6,7 @@ async function renderBalls() {
     })
     pass.setPipeline(pipeline)
     pass.setBindGroup(0, bgroup)
-    pass.dispatchWorkgroups(input.length / 6) // Divide by 8 floats per ball
+    pass.dispatchWorkgroups(input.length / 8) // Divide by 8 floats per ball
     pass.end()
     encoder.copyBufferToBuffer(wbuf, 0, rbuf, 0, rbuf.size)
     device.queue.submit([encoder.finish()])
@@ -20,10 +20,10 @@ async function renderBalls() {
         rbuf.unmap()
 
         ctx.clearRect(0, 0, 600, 400)
-        for (let i = 0; i < result.length; i += 6) {
+        for (let i = 0; i < result.length; i += 8) {
             const x = result[i]       // x position
             const y = result[i + 1]   // y position
-            const radius = result[i + 4] // radius (optional, if you want to use it)
+            const radius = result[i + 6] //radius (optional, if you want to use it)
 
             ctx.beginPath()
             ctx.arc(x, y, radius || 5, 0, Math.PI * 2) // Use radius if available, otherwise default to 5
