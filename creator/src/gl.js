@@ -17,7 +17,11 @@ export async function createShader(gl, type, source) {
  */
 export async function init(){
     const canvas = document.querySelector('canvas')
+    canvas.style.width="600px"
+    canvas.style.height="400px"
     const gl = canvas.getContext('webgl')
+    gl.canvas.width=600
+    gl.canvas.height=400
     if (!gl) {
         console.error('Unable to initialize WebGL. Your browser may not support it.')
         return null
